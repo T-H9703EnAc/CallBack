@@ -1,11 +1,18 @@
 package com.app.impl;
 
 public class CallBackTest {
-
+	/**
+	 * コールバック用インターフェース
+	 *
+	 */
 	interface CallBack {
 		void executeCallBack(User user);
 	}
-
+	
+	/**
+	 * ユーザ情報
+	 *
+	 */
 	class User {
 		private int id;
 		private String name;
@@ -28,9 +35,8 @@ public class CallBackTest {
 	}
 
 	public void execute() {
-		
+		// コールバック関数作成
 		CallBack cb = new CallBack() {
-
 			public void executeCallBack(User user) {
 				System.out.println(user.getId());
 				System.out.println(user.getName());
@@ -38,9 +44,12 @@ public class CallBackTest {
 			
 		};
 		
+		// ユーザ情報設定
 		User user = new User();
 		user.setId(0);
 		user.setName("Tarou");
+		
+		// コールバック関数呼び出し
 		cb.executeCallBack(user);
 	}
 }
